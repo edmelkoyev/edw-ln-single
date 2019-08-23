@@ -6,8 +6,7 @@ module.exports = {
         indexInitial: './src/indexInitial.js',
         indexResp: './src/indexResp.js',
         indexReview: './src/indexReview.js',
-        indexReviewAns: './src/indexReviewAns.js',
-        cors: './src/cors.js'
+        indexReviewAns: './src/indexReviewAns.js'
     },
 
     output: {

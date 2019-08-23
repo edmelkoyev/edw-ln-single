@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+public/*.js
+public/*.js.map
