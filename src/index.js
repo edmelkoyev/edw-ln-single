@@ -17,6 +17,10 @@ const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiW
  * was_hello_700_geogebra_excercise_free_body_diagram
  * was_hello_701_geogebra_excercise_math
  * was_hello_705_geogebra_sample-dev
+ * 
+ * edw_s82_cloze_with_text
+ * edw_s82_label_image_with_text
+ * edw_s82_dynamic_content_01
  */
 
 const lnItemProps = {
@@ -29,7 +33,7 @@ const lnItemProps = {
       "userId":"user000002",
       "email":"edmelkoyevuser000002@wiley.com"
     },
-  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a5a6e"
+  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8301"
 };
 const lnDomElementId = 'lrn001';
 
