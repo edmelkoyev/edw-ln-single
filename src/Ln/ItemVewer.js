@@ -31,6 +31,13 @@ export class ItemVewer {
     this._getResponses = this._getResponses.bind(this);
     this._setupDisableQuestionButton = this._setupDisableQuestionButton.bind(this);
     this._disableQuestion = this._disableQuestion.bind(this);
+    this._setupTestItemsAPIButton = this._setupTestItemsAPIButton.bind(this);
+    this._testItemsAPI = this._testItemsAPI.bind(this);
+    this._setupValidateQButton = this._setupValidateQButton.bind(this);
+    this._validateQ = this._validateQ.bind(this);
+    this._setupShowAnswer = this._setupShowAnswer.bind(this);
+    this._byGonzaloShowAnswer = this._byGonzaloShowAnswer.bind(this);
+    this._byGonzaloShowSolution = this._byGonzaloShowSolution.bind(this);
 
     this._loadApiInitObject();
   }
@@ -82,6 +89,9 @@ export class ItemVewer {
             this._setupSaveButton();
             this._setupGetResponsesButton();
             this._setupDisableQuestionButton();
+            this._setupTestItemsAPIButton();
+            this._setupValidateQButton();
+            this._setupShowAnswer();
         },
         errorListener: (er) => {
             console.log('Error code ', er.code);
@@ -177,7 +187,7 @@ export class ItemVewer {
   }
 
   /**
-   * _setupSaveButton
+   * _setupDisableQuestionButton
    */
   _setupDisableQuestionButton (){
     const scoreBtn = document.createElement('button');
@@ -189,7 +199,7 @@ export class ItemVewer {
   }
 
   /**
-   * _getResponses
+   * _disableQuestion
    */
   _disableQuestion () {
     console.log('disable question');
@@ -208,4 +218,100 @@ export class ItemVewer {
     // const resp = itemsApp.question('5552b303-fdd6-4a93-8e64-3c7a6a8a1a0a_e6bc77c92959891d3b36bd10fea85429').getQuestion();
     // console.log('questionsApp:', resp);
   }
+
+  /**
+   * _setupTestItemsAPIButton
+   */
+  _setupTestItemsAPIButton (){
+    const scoreBtn = document.createElement('button');
+    scoreBtn.type = 'button';
+    const t = document.createTextNode("Test Items API");
+    scoreBtn.appendChild(t); 
+    scoreBtn.addEventListener("click", this._testItemsAPI);
+    document.getElementById('ctrlPanel').appendChild(scoreBtn);
+  }
+
+  /**
+   * _testItemsAPI
+   */
+  _testItemsAPI () {
+    console.log('test items API');
+    const { itemsApp } = this.state;
+    const items = itemsApp.getItems();
+    console.log(items);
+    //itemsApp.questionsApp().disable();
+  }
+
+  /**
+   * _setupValidateQButton
+   */
+  _setupValidateQButton (){
+    const vldtBtn = document.createElement('button');
+    vldtBtn.type = 'button';
+    const t = document.createTextNode("Validate Q");
+    vldtBtn.appendChild(t); 
+    vldtBtn.addEventListener("click", this._validateQ);
+    document.getElementById('ctrlPanel').appendChild(vldtBtn);
+  }
+
+  /**
+   * _validateQ
+   */
+  _validateQ () {
+    const { itemsApp } = this.state;
+    console.log('Validate Questions test');
+    // itemsApp.validateQuestions( {showCorrectAnswers:true} );
+
+    // by Gonzalo:  Show Anser workaround
+    this._byGonzaloShowAnswer(itemsApp);
+
+    // by Gonzalo:  Show Solution workaround
+    this._byGonzaloShowSolution(itemsApp);
+
+  }
+
+  /**
+   * _setupShowAnswer
+   */
+  _setupShowAnswer (){
+
+    const { lstInitObject, itemsApp } = this.state;
+    const isShowAnswer = lstInitObject.request.config.questions_api_init_options.showCorrectAnswers;
+
+    if (isShowAnswer){
+      console.log(`by Gonzalo: Apply Show Anser workaround isShowAnswer=${isShowAnswer}`);
+      // by Gonzalo:  Show Anser workaround
+      this._byGonzaloShowAnswer(itemsApp);
+      // this._byGonzaloShowSolution(itemsApp);
+    }
+  }
+
+  /**
+   * _byGonzaloShowAnswer
+   */
+  _byGonzaloShowAnswer (itemsApp){
+    const lnQuestions = itemsApp.questions();
+
+    for (let [key, value] of Object.entries(lnQuestions)) {
+      value.validate({showCorrectAnswers:true});
+    }
+  }
+
+  /**
+   * _byGonzaloShowSolution
+   */
+  _byGonzaloShowSolution (itemsApp){
+    const lnQuestions = itemsApp.questions();
+     for (let [key, value] of Object.entries(lnQuestions)) {
+       console.log("em check:", typeof value, ":", typeof value.showSolution);
+       if (typeof value.showSolution === 'function'){
+         value.showSolution();
+       }
+       else {
+         console.error('EM: this LN question does not provide solution');
+       }
+     }
+  }
+
+
 }
