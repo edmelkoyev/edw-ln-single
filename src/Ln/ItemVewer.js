@@ -38,6 +38,7 @@ export class ItemVewer {
     this._setupShowAnswer = this._setupShowAnswer.bind(this);
     this._byGonzaloShowAnswer = this._byGonzaloShowAnswer.bind(this);
     this._byGonzaloShowSolution = this._byGonzaloShowSolution.bind(this);
+    this._byGonzaloDisableInputs = this._byGonzaloDisableInputs.bind(this);
 
     this._loadApiInitObject();
   }
@@ -263,11 +264,11 @@ export class ItemVewer {
     // itemsApp.validateQuestions( {showCorrectAnswers:true} );
 
     // by Gonzalo:  Show Anser workaround
-    this._byGonzaloShowAnswer(itemsApp);
+    // this._byGonzaloShowAnswer(itemsApp);
 
     // by Gonzalo:  Show Solution workaround
-    this._byGonzaloShowSolution(itemsApp);
-
+    // this._byGonzaloShowSolution(itemsApp);
+    // this._byGonzaloDisableInputs(itemsApp);
   }
 
   /**
@@ -281,8 +282,9 @@ export class ItemVewer {
     if (isShowAnswer){
       console.log(`by Gonzalo: Apply Show Anser workaround isShowAnswer=${isShowAnswer}`);
       // by Gonzalo:  Show Anser workaround
-      this._byGonzaloShowAnswer(itemsApp);
+      // this._byGonzaloShowAnswer(itemsApp);
       // this._byGonzaloShowSolution(itemsApp);
+      // this._byGonzaloDisableInputs(itemsApp);
     }
   }
 
@@ -314,4 +316,15 @@ export class ItemVewer {
   }
 
 
+  /**
+   * _byGonzaloDisableInputs
+   */
+  _byGonzaloDisableInputs (itemsApp){
+    const lnQuestions = itemsApp.questions();
+
+    for (let [key, value] of Object.entries(lnQuestions)) {
+      console.log("em: disable question:" , key);
+      value.disable();
+    }
+  }
 }

@@ -24,19 +24,20 @@ const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiW
  * was_hello_751_ggb_solution
  * 
  * lref-eqat-022c7136-8ab3-417f-ae05-4bcc8700c8d2-qa
+ * lref-eqat-8526cdca-994b-4d2a-9b20-d2171146a1f6-prod
  */
 
 const lnItemProps = {
   "serviceName":"items",
-  "referenceId":"was_hello_751_ggb_solution",
+  "referenceId":"lref-eqat-4ec8bd55-e4eb-4d7a-a4d1-ce738092dcf7-prod",
   "state": "review", // state: initial, resume, preview, review
   "domain":"edw.wiley.com",
   "maxScore":1,
   "user":{
-      "userId":"user000002",
+      "userId":"previewId",
       "email":"edmelkoyevuser000002@wiley.com"
     },
-  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8620",
+  "sessionId":"c91111ab-6ddf-4b9b-b169-d1e1629fdda9",
   "enableAnswer": false
 };
 const lnDomElementId = 'lrn001';

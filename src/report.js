@@ -1,7 +1,6 @@
-import {ItemVewer} from './Ln/ItemVewer.js';
+import {ItemReporter} from './Ln/ItemReporter.js';
 
-const lnInitApiUrl = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApi';
-const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiWithResponses';
+const lnInitReportsApiUrl = '/learnosity/wrapper/v1/initReportsApi';
 /** List of LM Items
  * was_item_essay_rt
  * was_hello_007_dd
@@ -30,7 +29,7 @@ const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiW
  */
 
 const lnItemProps = {
-  "serviceName":"items",
+  "serviceName":"reports",
   "referenceId":"lref-eqat-8526cdca-994b-4d2a-9b20-d2171146a1f6-prod", // LM Item Ref
   "state": "resume", // state: initial, resume, preview, review
   "domain":"edw.wiley.com",
@@ -41,6 +40,6 @@ const lnItemProps = {
     },
   "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8625"
 };
-const lnDomElementId = 'lrn001';
+const lnDomElementId = 'lrnReport001';
 
-const learnosityItemViewer1 = new ItemVewer(lnInitApiUrl, lnItemProps, lnDomElementId);
+const learnosityItemViewer1 = new ItemReporter(lnInitReportsApiUrl, lnItemProps, lnDomElementId);

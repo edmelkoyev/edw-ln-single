@@ -6,7 +6,8 @@ module.exports = {
         indexInitial: './src/indexInitial.js',
         indexResp: './src/indexResp.js',
         indexReview: './src/indexReview.js',
-        indexReviewAns: './src/indexReviewAns.js'
+        indexReviewAns: './src/indexReviewAns.js',
+        report: './src/report.js',
     },
 
     output: {
