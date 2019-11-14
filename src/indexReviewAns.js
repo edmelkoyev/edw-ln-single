@@ -25,7 +25,7 @@ const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiW
 
 const lnItemProps = {
   "serviceName":"items",
-  "referenceId":"lref-eqat-8526cdca-994b-4d2a-9b20-d2171146a1f6-prod",
+  "referenceId":"was_hello_007_dd",
   "state": "review", // state: initial, resume, preview, review
   "domain":"edw.wiley.com",
   "maxScore":1,
@@ -33,7 +33,7 @@ const lnItemProps = {
       "userId":"user000002",
       "email":"edmelkoyevuser000002@wiley.com"
     },
-  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8625",
+  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8701",
   "enableAnswer": true
 };
 const lnDomElementId = 'lrn001';

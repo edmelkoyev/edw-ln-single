@@ -29,15 +29,15 @@ const lnInitApiUrl2 = 'http://localhost:8080/learnosity/wrapper/v1/initItemsApiW
 
 const lnItemProps = {
   "serviceName":"items",
-  "referenceId":"lref-eqat-4ec8bd55-e4eb-4d7a-a4d1-ce738092dcf7-prod",
+  "referenceId":"was_hello_007_dd",
   "state": "review", // state: initial, resume, preview, review
   "domain":"edw.wiley.com",
   "maxScore":1,
   "user":{
-      "userId":"previewId",
+      "userId":"user000002",
       "email":"edmelkoyevuser000002@wiley.com"
     },
-  "sessionId":"c91111ab-6ddf-4b9b-b169-d1e1629fdda9",
+  "sessionId":"5553b505-fdd1-1a11-1e11-5a5a5a5a8701",
   "enableAnswer": false
 };
 const lnDomElementId = 'lrn001';
